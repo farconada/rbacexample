@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2011 
+*  (c) 2011
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -30,11 +30,11 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 
-class Tx_Rbacexample_Controller_EventController extends Tx_Extbase_MVC_Controller_ActionController {
-	
+class Tx_Rbacexample_Controller_EventController extends Tx_Rbac_Controller_AbstractController {
+
 	/**
 	 * eventRepository
-	 * 
+	 *
 	 * @var Tx_Rbacexample_Domain_Repository_EventRepository
 	 */
 	protected $eventRepository;
@@ -45,11 +45,12 @@ class Tx_Rbacexample_Controller_EventController extends Tx_Extbase_MVC_Controlle
 	 * @return void
 	 */
 	protected function initializeAction() {
+		parent::initializeAction();
 		$this->eventRepository = t3lib_div::makeInstance('Tx_Rbacexample_Domain_Repository_EventRepository');
 	}
-	
-	
-		
+
+
+
 	/**
 	 * Displays all Events
 	 *
@@ -59,8 +60,8 @@ class Tx_Rbacexample_Controller_EventController extends Tx_Extbase_MVC_Controlle
 		$events = $this->eventRepository->findAll();
 		$this->view->assign('events', $events);
 	}
-	
-		
+
+
 	/**
 	 * Displays a single Event
 	 *
@@ -70,11 +71,12 @@ class Tx_Rbacexample_Controller_EventController extends Tx_Extbase_MVC_Controlle
 	public function showAction(Tx_Rbacexample_Domain_Model_Event $event) {
 		$this->view->assign('event', $event);
 	}
-	
-		
+
+
 	/**
 	 * Creates a new Event and forwards to the list action.
 	 *
+	 * @rbacRule Event > new,create
 	 * @param Tx_Rbacexample_Domain_Model_Event $newEvent a fresh Event object which has not yet been added to the repository
 	 * @return string An HTML form for creating a new Event
 	 * @dontvalidate $newEvent
@@ -82,11 +84,12 @@ class Tx_Rbacexample_Controller_EventController extends Tx_Extbase_MVC_Controlle
 	public function newAction(Tx_Rbacexample_Domain_Model_Event $newEvent = NULL) {
 		$this->view->assign('newEvent', $newEvent);
 	}
-	
-		
+
+
 	/**
 	 * Creates a new Event and forwards to the list action.
 	 *
+	 * @rbacRule Event > new,create
 	 * @param Tx_Rbacexample_Domain_Model_Event $newEvent a fresh Event object which has not yet been added to the repository
 	 * @return void
 	 */
@@ -95,20 +98,20 @@ class Tx_Rbacexample_Controller_EventController extends Tx_Extbase_MVC_Controlle
 		$this->flashMessageContainer->add('Your new Event was created.');
 		$this->redirect('list');
 	}
-	
-		
-	
+
+
+
 	/**
 	 * Updates an existing Event and forwards to the index action afterwards.
 	 *
 	 * @param Tx_Rbacexample_Domain_Model_Event $event the Event to display
-	 * @return string A form to edit a Event 
+	 * @return string A form to edit a Event
 	 */
 	public function editAction(Tx_Rbacexample_Domain_Model_Event $event) {
 		$this->view->assign('event', $event);
 	}
-	
-		
+
+
 
 	/**
 	 * Updates an existing Event and forwards to the list action afterwards.
@@ -120,8 +123,8 @@ class Tx_Rbacexample_Controller_EventController extends Tx_Extbase_MVC_Controlle
 		$this->flashMessageContainer->add('Your Event was updated.');
 		$this->redirect('list');
 	}
-	
-		
+
+
 			/**
 	 * Deletes an existing Event
 	 *
@@ -133,6 +136,6 @@ class Tx_Rbacexample_Controller_EventController extends Tx_Extbase_MVC_Controlle
 		$this->flashMessageContainer->add('Your Event was removed.');
 		$this->redirect('list');
 	}
-	
+
 }
 ?>

@@ -2,10 +2,10 @@
 
 This Template is responsible for displaying a single view for a domain object
 
-If you modify this template, do not forget to change the overwrite settings 
+If you modify this template, do not forget to change the overwrite settings
 in /Configuration/Kickstarter/settings.yaml:
 	Resources:
-		Private: 
+		Private:
 			Templates:
 				Show.html		keep
 
@@ -17,5 +17,5 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:flashMessages />
 <f:render partial="Event/properties" arguments="{event:event}" />
 <f:link.action action="list">Back to list</f:link.action><br />
-<f:link.action action="create">New Event</f:link.action>
+<f:link.action action="new">New Event</f:link.action>
 </f:section>
