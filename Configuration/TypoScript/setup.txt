@@ -1,0 +1,29 @@
+plugin.tx_rbacexample {
+	settings 
+	view {
+		templateRootPath = {$plugin.tx_rbacexample.view.templateRootPath}
+		partialRootPath = {$plugin.tx_rbacexample.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_rbacexample.view.layoutRootPath}
+	}
+}
+
+plugin.tx_rbacexample._CSS_DEFAULT_STYLE (
+		input.f3-form-error {
+			background-color:#FF9F9F;
+			border: 1px #FF0000 solid;
+		}
+
+		.tx-rbacexample-pi1 table {
+			border-collapse:separate;
+			border-spacing:10px;
+		}
+
+		.tx-rbacexample-pi1 table th {
+			font-weight:bold;
+		}
+
+		.tx-rbacexample-pi1 table td {
+			vertical-align:top;
+		}
+	)
+}

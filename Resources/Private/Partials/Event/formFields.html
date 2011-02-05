@@ -1,0 +1,16 @@
+<label for="date">
+	<f:translate key="tx_rbacexample_domain_model_event.date" /> <span class="required">(required)</span>
+</label><br />
+	<f:form.textbox property="date"  value="{event.date->f:format.date()}"  /><br />
+<label for="description">
+	<f:translate key="tx_rbacexample_domain_model_event.description" /> <span class="required">(required)</span>
+</label><br />
+	<f:form.textarea property="description" cols="40" rows="15" /><br />
+<label for="place">
+	<f:translate key="tx_rbacexample_domain_model_event.place" /> <span class="required">(required)</span>
+</label><br />
+	<f:form.textbox property="place" /><br />
+<label for="secretplans">
+	<f:translate key="tx_rbacexample_domain_model_event.secretplans" />
+</label><br />
+	<f:form.textarea property="secretplans" cols="40" rows="15" /><br />
