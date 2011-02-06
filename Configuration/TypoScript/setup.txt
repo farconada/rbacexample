@@ -1,9 +1,10 @@
 plugin.tx_rbacexample {
-	settings 
-	view {
-		templateRootPath = {$plugin.tx_rbacexample.view.templateRootPath}
-		partialRootPath = {$plugin.tx_rbacexample.view.partialRootPath}
-		layoutRootPath = {$plugin.tx_rbacexample.view.layoutRootPath}
+	settings {
+		view {
+			templateRootPath = {$plugin.tx_rbacexample.view.templateRootPath}
+			partialRootPath = {$plugin.tx_rbacexample.view.partialRootPath}
+			layoutRootPath = {$plugin.tx_rbacexample.view.layoutRootPath}
+		}
 	}
 }
 
@@ -26,4 +27,21 @@ plugin.tx_rbacexample._CSS_DEFAULT_STYLE (
 			vertical-align:top;
 		}
 	)
+
+
+plugin.tx_rbacexample {
+	settings {
+		rbac.roles {
+			eventcreator {
+				Event {
+					actions = new, create
+				}
+			}
+			secretwatcher {
+				Event {
+					actions = viewSecret
+				}
+			}
+		}
+	}
 }

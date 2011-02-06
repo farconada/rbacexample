@@ -70,6 +70,7 @@ class Tx_Rbacexample_Controller_EventController extends Tx_Rbac_Controller_Abstr
 	 */
 	public function showAction(Tx_Rbacexample_Domain_Model_Event $event) {
 		$this->view->assign('event', $event);
+		$this->view->assign('settings',$this->settings);
 	}
 
 
