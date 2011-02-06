@@ -1,0 +1,14 @@
+plugin.tx_rbacexample {
+	view {
+		# cat=plugin.tx_rbacexample/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:rbacexample/Resources/Private/Templates/
+		# cat=plugin.tx_rbacexample/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:rbacexample/Resources/Private/Partials/
+		# cat=plugin.tx_rbacexample/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:rbacexample/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_rbacexample//a; type=int+; label=Default storage PID
+		storagePid = 
+	}
+}

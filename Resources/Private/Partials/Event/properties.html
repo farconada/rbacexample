@@ -1,0 +1,53 @@
+{namespace acl=Tx_Rbac_ViewHelper}
+<table class="tx-rbacexample-pi1" >
+	<tr>
+		<td>
+			<f:translate key="tx_rbacexample_domain_model_event.date" />
+		</td>
+		<td>
+			{event.date -> f:format.date()}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_rbacexample_domain_model_event.description" />
+		</td>
+		<td>
+			{event.description}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_rbacexample_domain_model_event.place" />
+		</td>
+		<td>
+			{event.place}
+		</td>
+	</tr>
+	<acl:rbac settings="{settings}">
+	<rules>
+		<rule>Event > viewSecret</rule>
+	</rules>
+	<htmlIfDenied>
+		<tr>
+			<td>
+				<f:translate key="tx_rbacexample_domain_model_event.secretplans" />
+			</td>
+			<td>
+				Your are not allowed to see it
+			</td>
+		</tr>
+	</htmlIfDenied>
+	<htmlIfAllowed>
+		<tr>
+			<td>
+				<f:translate key="tx_rbacexample_domain_model_event.secretplans" />
+			</td>
+			<td>
+				Secret: {event.secretplans}
+			</td>
+		</tr>
+	</htmlIfAllowed>
+	</acl:rbac>
+
+</table>
